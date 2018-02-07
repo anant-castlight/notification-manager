@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.jiff</groupId>
+        <artifactId>base-hydra-parent</artifactId>
+        <version>1.0.80-RELEASE</version>
+    </parent>
+
+    <artifactId>notification-manager</artifactId>
+    <groupId>com.jiff</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jiff</groupId>
+            <artifactId>base-datadog-client</artifactId>
+            <version>2.0.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.7.7.201606060606</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.15</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jiff</groupId>
+            <artifactId>base-kafka-service</artifactId>
+            <version>2.0.2-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+
+</project>

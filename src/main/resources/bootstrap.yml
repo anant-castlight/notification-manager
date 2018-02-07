@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: notification-manager
+  cloud:
+    config:
+      uri: ${jiff.config.server.host}
+      failFast: true
+  config:
+      retry:
+        multiplier: 1.5
+        maxAttempts: 50
+
+  autoconfigure:
+      exclude:
+        - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+
+banner:
+  image:
+    height: 10
+    width: 20

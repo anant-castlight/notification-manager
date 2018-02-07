@@ -1,0 +1,38 @@
+version: "3.1"
+
+services:
+  notification-manager-server:
+    image: platform.artifactory.jiff.ops/jiff/notification-manager:master
+    hostname: notification-manager
+    env_file:
+      - hydra-environment
+    environment:
+    labels:
+      service: 'notification-manager'
+      type: 'server'
+      kubernetes.autoscale_method: cpu
+      kubernetes.autoscale_target: "70"
+      kubernetes.max_surge: "3"
+      kubernetes.ingress.secure-backends: "true"
+      kubernetes.ingress.ssl-redirect: "true"
+    healthcheck: &healthcheck
+      test: ["CMD", "curl", "-k", "https://localhost:1080/health"]
+      interval: 90s
+      timeout: 20s
+      retries: 6
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1500M
+        reservations:
+          cpus: "0.2"
+          memory: 1000M
+    secrets:
+    - "hydra-keystore"
+    ports:
+      - "443:1080"
+
+secrets:
+  hydra-keystore:
+    external: true
